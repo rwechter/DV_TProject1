@@ -13,6 +13,19 @@ output: html_document
 
 We have been working with these same two datasets (first is US healthcare expenditures over time, and second is US Causes of Death by State) for multiple R projects, so it was interesting to finally work with this data in Tableau. With the enhanced capability of Tableau, we wanted to drill down deeper into healthcare expenditures by item (hospital care, dental care, prescription drugs, etc.) and correlate these figures with deaths.
 
+###Loading our data from the Oracle Database
+
+####Dataset 1: National Healthcare Expenditures
+We modified the R script given to us to create a SQL code that would create the table in the Oracle Database.  We then loaded our data and could connect to the database to create our data frame in RStudio.
+```{r}
+source("../01 Data/Project3_ETL_Data1.R", echo = TRUE)
+```
+
+####Dataset 2: Cause of Death
+```{r}
+source("../01 Data/Project3_ETL_Data2.R", echo = TRUE)
+```
+
 ###Visualization #1: Crosstab
 
 This crosstab has states for its rows and healthcare expenditure items for its columns. The KPI inside the crosstab is the average annual percentage growth in expenditures, year over year from 1980 - 2009. The growth rates are separated as High (KPI > 10%), Medium (7% < KPI < 10%), and Low (KPI < 7%) according to our Tableau parameters. 
