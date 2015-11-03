@@ -16,14 +16,31 @@ We have been working with these same two datasets (first is US healthcare expend
 ###Loading our data from the Oracle Database
 
 ####Dataset 1: National Healthcare Expenditures
-We modified the R script given to us to create a SQL code that would create the table in the Oracle Database.  We then loaded our data and could connect to the database to create our data frame in RStudio.
+
+We modified the R script given to us to create a SQL code that would create the table in the Oracle Database from previous assignments.  We then loaded our data and could connect to the database to create our data frame in RStudio.
+
 ```{r}
-source("../01 Data/Project3_ETL_Data1.R", echo = TRUE)
+setwd("~/DataVisualization/DV_TProject1/01 Data")
+
+file_path <- "US_AGGREGATE09.CSV.reformatted.csv"
+
+df1 <- read.csv(file_path, stringsAsFactors = FALSE)
+
+head(df1)
+summary(df1)
 ```
 
 ####Dataset 2: Cause of Death
+
 ```{r}
-source("../01 Data/Project3_ETL_Data2.R", echo = TRUE)
+setwd("~/DataVisualization/DV_TProject1/01 Data")
+
+file_path <- "LeadingCausesStateYear.csv"
+
+df2 <- read.csv(file_path, stringsAsFactors = FALSE)
+
+head(df2)
+summary(df2)
 ```
 
 ###Visualization #1: Crosstab
@@ -52,4 +69,4 @@ This scatterplot has Hospital Care expenditures (represented here as Y1999) for 
 
 ![](./Scatterplot.png)
 
-From viewing the scatterplot and associated three trendlines. we see that there is a clear positive correlation between heart disease deaths and hospital care expenditures. This is expected, as both statistics are likely caused by a third variable, state population. We expect that similar positive correlations will exist regardless of the filters we place on state, cause of death, and expenditure item because of the results of the prior Crosstab and Bar Chart. These results showed that healthcare expenditures are relatively homogeneous across states and expenditure items. For the most part, they rose everywhere from 1980 - 2009. This is likely why the Obama administration has been so adamant about standardizing health care policy across the United States, and not having it vary by state or expenditure item. Therefore, our analysis and above charts help explain why Obamacare has grown to cover policy at a comprehensive federal level.
+From viewing the scatterplot, associated trendline, and associated confidence interval lines. we see that there is a clear positive correlation between heart disease deaths and hospital care expenditures. This is expected, as both statistics are likely caused by a third variable, state population. We expect that similar positive correlations will exist regardless of the filters we place on state, cause of death, and expenditure item because of the results of the prior Crosstab and Bar Chart. These results showed that healthcare expenditures are relatively homogeneous across states and expenditure items. For the most part, they rose everywhere from 1980 - 2009. This is likely why the Obama administration has been so adamant about standardizing health care policy across the United States, and not having it vary by state or expenditure item. Therefore, our analysis and above charts help explain why Obamacare has grown to cover policy at a comprehensive federal level.
