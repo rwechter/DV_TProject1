@@ -4,13 +4,16 @@ df1 <- mutate(df1, LOW = (AVERAGE_ANNUAL_PERCENT_GROWTH) %/% 7.01)
 df1 <- mutate(df1, MED = (AVERAGE_ANNUAL_PERCENT_GROWTH) %/% 10)
 df1 <- mutate(df1, HIGH = LOW + MED)  
 
-df1 %>% ggplot(aes(x=STATE_NAME,y=ITEM,label=round(AVERAGE_ANNUAL_PERCENT_GROWTH,digits = 2),color = factor(HIGH))) + geom_text() + scale_colour_discrete() + coord_flip()
+#df1 %>% ggplot(aes(x=STATE_NAME,y=ITEM,label=round(AVERAGE_ANNUAL_PERCENT_GROWTH,digits = 2),color = factor(HIGH))) + geom_text() + scale_colour_discrete() + coord_flip()
 
-scale_colour_manual(values = c("blue", "orange", "green","green"))
+#scale_colour_manual(values = c("blue", "orange", "green","green"))
 
 ggplot() + 
   coord_cartesian() +
   scale_x_discrete() +
   scale_y_discrete() +
-  layer(data = df1,mapping = aes(x=STATE_NAME,y=ITEM,label = round(AVERAGE_ANNUAL_PERCENT_GROWTH,digits=2),color = factor(HIGH)),stat='identity',geom='text') + coord_flip()
+  layer(data = df1,mapping = aes(x=STATE_NAME,y=ITEM,label = round(AVERAGE_ANNUAL_PERCENT_GROWTH,digits=2),color = factor(HIGH)),stat='identity',geom='text') + 
+  coord_flip() +
+  theme(axis.text.x = element_text(angle = 45,size = 10))
+
   
