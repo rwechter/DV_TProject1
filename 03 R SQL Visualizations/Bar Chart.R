@@ -4,3 +4,9 @@ df1 <- NHCE %>% select(COUNTRYGROUP,CODE,ITEM,STATE_NAME,Y1980,Y1981,Y1982,Y1983
 df2 <- melt(df1,id.var = "ITEM")
 
 ggplot(df2,aes(x=variable,y=value,fill = ITEM)) + geom_bar(stat='identity')
+
+ggplot () + 
+  coord_cartesian() +
+  scale_x_discrete() +
+  scale_y_continuous() +
+  layer(data = df2, mapping = aes(x = variable, y =value, fill = ITEM), stat = 'identity',geom = 'bar')
