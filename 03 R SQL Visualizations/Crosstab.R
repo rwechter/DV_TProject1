@@ -12,8 +12,9 @@ ggplot() +
   coord_cartesian() +
   scale_x_discrete() +
   scale_y_discrete() +
+  labs(title = 'Spending Growth Rate by State and Service Type',x = 'Service Type',y='STATE')+
   layer(data = df1,mapping = aes(x=STATE_NAME,y=ITEM,label = round(AVERAGE_ANNUAL_PERCENT_GROWTH,digits=2),color = factor(HIGH)),stat='identity',geom='text') + 
-  coord_flip() +
-  theme(axis.text.x = element_text(angle = 45,size = 10))
-
+  theme(axis.text.x = element_text(angle = 20,size = 10)) +
+  coord_flip()
+  
   

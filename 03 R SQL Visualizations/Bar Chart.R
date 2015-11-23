@@ -9,6 +9,7 @@ ggplot () +
   coord_cartesian() +
   scale_x_discrete() +
   scale_y_continuous() +
+  labs(title = 'Annual Healthcare Expenditure in Texas by Service Type',x='Year',y='Spending') +
   layer(data = df2, mapping = aes(x = variable, y =value, fill = ITEM), stat = 'identity',geom = 'bar') + 
   theme(axis.text.x = element_text(angle = 45,size = 10))
 

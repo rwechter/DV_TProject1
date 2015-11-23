@@ -4,7 +4,7 @@ df2 <- NHCE %>% select(ITEM,Y1999,STATE_NAME) %>% filter(ITEM == 'Hospital Care 
 
 df3 <- inner_join(df1,df2, by = c("STATE" = "STATE_NAME"))
 
-df3 %>% ggplot(aes(x = DEATHS, y = Y1999)) + geom_point() + geom_smooth(method = lm)
+df3 %>% ggplot(aes(x = DEATHS, y = Y1999)) + geom_point() + geom_smooth(method = lm) + labs(title= 'Correlation between Spending on Hospital Care and Deaths caused by Diseases of the Heart', x= 'Deaths',y='Spending in 1999')
 
-lm(Y1999~DEATHS,df3)
+#lm(Y1999~DEATHS,df3)
 
